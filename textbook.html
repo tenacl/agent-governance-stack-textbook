@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>The Agent Governance Stack — 다산식 교재</title>
+<style>
+:root{--bg:#080e1c;--sidebar:#0d1428;--panel:#111827;--panel2:#161f35;--text:#e8edf8;--muted:#8892aa;--line:#1e2d4a;--accent:#7c9cff;--green:#4de2c5;--warn:#ffb86b;--red:#ff7070;--dasan:#f5c842;--r:16px;--max:940px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{display:flex;min-height:100vh;background:var(--bg);color:var(--text);font-family:Inter,-apple-system,"Noto Sans KR",sans-serif;font-size:16px;line-height:1.75}#sidebar{width:280px;min-width:280px;background:var(--sidebar);border-right:1px solid var(--line);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;font-size:13px}#sidebar-header{padding:20px 18px 14px;border-bottom:1px solid var(--line)}#sidebar-header h2{font-size:15px;color:#fff;letter-spacing:-.02em}#sidebar-header p{color:var(--muted);font-size:12px;margin-top:4px}#progress-bar{height:3px;background:var(--line);margin-top:10px;border-radius:99px;overflow:hidden}#progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--green));width:0%;transition:width .4s}nav{padding:10px 0 20px}.nav-group{padding:6px 18px 2px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em}.nav-item{display:block;padding:8px 18px;color:var(--muted);text-decoration:none;border-left:2px solid transparent;transition:.15s}.nav-item:hover{color:var(--text);background:rgba(255,255,255,.04)}.nav-item.active{color:#fff;border-left-color:var(--accent);background:rgba(124,156,255,.08)}#main{flex:1;overflow-y:auto;padding:0 0 80px}.chapter{max-width:var(--max);margin:0 auto;padding:48px 40px;display:none}.chapter.active{display:block}.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}.hero{padding-top:56px}.hero h1{font-size:42px;line-height:1.2;letter-spacing:-.03em;margin-bottom:18px}.hero p{font-size:18px;color:#d4def5}.dasan{background:linear-gradient(135deg,rgba(245,200,66,.1),rgba(245,200,66,.04));border:1px solid rgba(245,200,66,.3);border-radius:var(--r);padding:18px 20px;margin:24px 0}.dasan .tag{font-size:12px;color:var(--dasan);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}.dasan p{color:#fce9a0;font-size:15px;font-style:italic}h2{font-size:28px;letter-spacing:-.02em;margin:8px 0 18px;color:#fff}h3{font-size:20px;letter-spacing:-.02em;margin:32px 0 10px;color:#fff}p{color:#c8d2e8;margin:10px 0}ul,ol{padding-left:20px;color:#c8d2e8}li{margin:7px 0}b{color:#fff}.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px;margin:20px 0}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}pre{background:#070d1a;border:1px solid var(--line);border-radius:14px;padding:18px;font-family:ui-monospace,monospace;font-size:13px;color:#d0e4ff;overflow-x:auto;white-space:pre-wrap;line-height:1.55;margin:16px 0}table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}th{background:var(--panel2);padding:10px 14px;text-align:left;color:#c5d0ff;border:1px solid var(--line)}td{padding:10px 14px;border:1px solid var(--line);color:#c8d2e8;vertical-align:top}tr:nth-child(even) td{background:rgba(255,255,255,.02)}.practice{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px;margin:24px 0}.practice .label{font-size:12px;color:var(--green);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}.memo{margin:24px 0}.memo .label{font-size:12px;color:var(--dasan);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}.memo textarea{width:100%;min-height:130px;background:#0a1022;border:1px solid rgba(245,200,66,.2);border-radius:14px;padding:14px;color:#fce9a0;font-size:14px;font-family:inherit;resize:vertical;outline:none;line-height:1.6}.memo textarea:focus{border-color:rgba(245,200,66,.5)}.review{background:var(--panel2);border:1px solid var(--line);border-radius:var(--r);padding:20px;margin:28px 0}.review .label{font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}.q{padding:10px 0;border-bottom:1px solid var(--line);color:#c5d0ff;font-size:14px}.q:last-child{border-bottom:none}.ch-nav{display:flex;justify-content:space-between;gap:12px;margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}.ch-btn{padding:12px 20px;border-radius:99px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:var(--text);cursor:pointer;font-size:14px;font-family:inherit;transition:.15s}.ch-btn:hover{background:rgba(124,156,255,.15);border-color:rgba(124,156,255,.3)}.small{font-size:14px;color:var(--muted)}.footer-note{margin-top:14px;color:var(--muted);font-size:14px}@media(max-width:900px){#sidebar{display:none}.chapter{padding:28px 20px}.hero h1{font-size:32px}.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="sidebar">
+  <div id="sidebar-header">
+    <h2>The Agent Governance Stack</h2>
+    <p>다산 50법으로 읽고 사유하는 교재</p>
+    <div id="progress-bar"><div id="progress-fill"></div></div>
+  </div>
+  <nav id="nav-root">
+    <div class="nav-group">챕터</div>
+    <a href="#" class="nav-item active">0. 시작</a>
+    <a href="#" class="nav-item">1. 왜 거버넌스인가</a>
+    <a href="#" class="nav-item">2. Layer 1 Identity</a>
+    <a href="#" class="nav-item">3. Layer 2 Tool Governance</a>
+    <a href="#" class="nav-item">4. Layer 3 Policy & Guardrails</a>
+    <a href="#" class="nav-item">5. Layer 4 Monitoring & Detection</a>
+    <a href="#" class="nav-item">6. Layer 5 Unified Posture</a>
+    <a href="#" class="nav-item">7. 적용 설계</a>
+    <a href="#" class="nav-item">8. 부록</a>
+  </nav>
+</div>
+<div id="main">
+  <section class="chapter active hero" id="ch0">
+    <div class="eyebrow">Dasan Textbook</div>
+    <h1>The Agent Governance Stack<br/>에이전트 조직을 다루듯 운영하라</h1>
+    <p>이 교재는 Google Cloud Next 26에서 제시된 Agent Governance Stack을 다산 공부법으로 다시 엮은 읽기용 HTML 교재다. 목표는 단순 요약이 아니라, <b>읽고 → 비교하고 → 의심하고 → 직접 설계하게 만드는 것</b>이다.</p>
+    <div class="dasan"><div class="tag">다산 원칙 · 선정문목법 + 축기견초법</div><p>전체 구조를 먼저 세우고, 그 구조 위에서 한 층씩 쌓아라. 에이전트 거버넌스도 도구 목록보다 먼저 운영 원리부터 잡아야 한다.</p></div>
+    <div class="card">
+      <h3>이 교재에서 다루는 질문</h3>
+      <ul>
+        <li>왜 에이전트는 SaaS보다 더 강한 통제가 필요한가?</li>
+        <li>왜 Identity가 모든 계층의 출발점인가?</li>
+        <li>도구 등록, 정책 강제, 이상 탐지, 위협 탐지, 통합 시야는 어떻게 이어지는가?</li>
+        <li>이 구조를 OpenClaw, Paperclip, 사내 에이전트 시스템에 어떻게 옮길 수 있는가?</li>
+      </ul>
+    </div>
+    <div class="practice"><div class="label">실습 · 정과실천법</div><ol><li>현재 네가 운영하거나 상상하는 에이전트 3종을 적는다.</li><li>각 에이전트가 접근하는 데이터와 도구를 떠올린다.</li><li>“이 셋이 지금 공용 자격증명을 쓰고 있다면 무슨 사고가 날까?”를 한 줄씩 적는다.</li></ol><p><b>완료 조건:</b> 최소 3개의 구체적 위험을 적었다.</p></div>
+    <div class="memo"><div class="label">내 생각 쓰기 · 수사차록법</div><textarea placeholder="이 글을 왜 읽어야 하는지, 지금 내 시스템에서 가장 불안한 지점이 무엇인지 적어봐."></textarea></div>
+    <div class="review"><div class="label">다시 확인 · 반복참정법</div><div class="q">나는 지금 에이전트를 ‘툴’로 보고 있는가, ‘조직 구성원’으로 보고 있는가?</div><div class="q">내 시스템에 공용 계정, 공용 토큰, 공용 권한이 숨어 있지는 않은가?</div><div class="q">이 교재를 다 읽은 뒤 내가 바꾸고 싶은 첫 번째 운영 원칙은 무엇인가?</div></div>
+    <div class="ch-nav"><span></span><button class="ch-btn" onclick="goto(1)">다음 챕터 →</button></div>
+  </section>
+
+  <section class="chapter" id="ch1">
+    <h2>1. 왜 거버넌스인가</h2>
+    <div class="dasan"><div class="tag">다산 원칙 · 여박총피법</div><p>‘보안이 중요하다’에서 멈추지 말고, 왜 기존 SaaS 통제 방식이 에이전트에는 부족한지 한 겹 더 파고들어라.</p></div>
+    <h3>핵심 개념</h3>
+    <p>글의 첫 문장은 매우 강하다. <b>잘못 설정된 SaaS는 수동적으로 데이터 유출을 만들 수 있지만, 잘못 설정된 에이전트는 능동적으로 잘못된 행동을 실행한다.</b> 이 차이가 모든 것을 바꾼다.</p>
+    <p>에이전트는 단순 조회 도구가 아니다. 생산 DB를 읽고, 고객 PII를 만지고, 재무 시스템에 명령을 내리고, 툴을 연결해 연쇄 행동을 만든다. 따라서 리스크는 ‘정보 노출’에서 끝나지 않고 ‘행동 자동화’까지 확장된다.</p>
+    <h3>왜 이게 필요한가?</h3>
+    <p>2015년 shadow IT는 승인되지 않은 SaaS의 확산 문제였다. 지금의 shadow AI는 승인되지 않은 <b>에이전트 능력</b>의 확산 문제다. 팀마다 각자 도구를 붙이고, 모델을 바꾸고, 프롬프트를 얹고, 권한을 나눠 쓰면 겉으로는 빨라 보이지만 조직 전체는 점점 보이지 않게 된다.</p>
+    <h3>비교로 이해하기</h3>
+    <table>
+      <tr><th>항목</th><th>전통 SaaS 위험</th><th>에이전트 위험</th></tr>
+      <tr><td>행동성</td><td>주로 데이터 저장·조회</td><td>연쇄 실행, 의사결정, 외부 시스템 조작</td></tr>
+      <tr><td>피해 양상</td><td>수동적 유출</td><td>능동적 오조치 + 유출 + 확산</td></tr>
+      <tr><td>책임 추적</td><td>사용자 단위 추적이 상대적으로 쉬움</td><td>공용 자격증명 사용 시 추적 붕괴</td></tr>
+      <tr><td>통제 포인트</td><td>SSO, 승인 앱, 감사 로그</td><td>정체성, 도구 등록, 정책, 이상 탐지, 위협 탐지, 통합 보안 시야</td></tr>
+    </table>
+    <h3>반대로 생각하면?</h3>
+    <p>“에이전트는 아직 작고 실험적이니까 나중에 통제해도 된다”는 생각이 가장 위험하다. 에이전트는 처음부터 API, 데이터, 실행 경로를 가진다. 초기 설계가 느슨하면 나중에 고치기 더 어렵다. 사람 조직도 사번 없이 수십 명을 먼저 뽑고 나중에 정리하지는 않는다.</p>
+    <div class="practice"><div class="label">실습 · 층체판석법</div><ol><li>네 시스템에서 에이전트가 할 수 있는 행동을 조회 / 수정 / 실행 / 외부발신으로 나눈다.</li><li>각 행동마다 사고가 났을 때 피해 범위를 적는다.</li><li>가장 큰 피해를 내는 행동 1개를 골라 이유를 쓴다.</li></ol><p><b>완료 조건:</b> 행동별 리스크 표 하나를 만들었다.</p></div>
+    <div class="memo"><div class="label">내 생각 쓰기</div><textarea placeholder="내가 가장 과소평가하고 있던 리스크는 무엇이었나?"></textarea></div>
+    <div class="review"><div class="label">다시 확인</div><div class="q">에이전트 리스크를 단순히 ‘데이터 접근’으로만 보고 있지 않은가?</div><div class="q">내 시스템에도 shadow AI가 이미 생기기 쉬운 구조가 있는가?</div><div class="q">이 챕터를 내 운영 환경에 번역하면 가장 먼저 손봐야 할 것은 무엇인가?</div></div>
+    <div class="ch-nav"><button class="ch-btn" onclick="goto(0)">← 이전</button><button class="ch-btn" onclick="goto(2)">다음 →</button></div>
+  </section>
+
+  <section class="chapter" id="ch2">
+    <h2>2. Layer 1 — Identity</h2>
+    <div class="dasan"><div class="tag">다산 원칙 · 축기견초법 + 무징불신법</div><p>정체성이 없으면 정책도, 탐지도, 감사도 성립하지 않는다. 윗층을 논하기 전에 기반이 실제로 존재하는지부터 확인하라.</p></div>
+    <h3>핵심 개념</h3>
+    <p>이 글은 Identity를 1계층으로 둔다. 이유는 단순하다. <b>서로 구분되지 않는 에이전트에게는 의미 있는 정책을 걸 수 없고, 개별 행동 기준선을 만들 수도 없기 때문이다.</b></p>
+    <p>Agent Identity는 각 에이전트에 고유한 암호학적 ID와 authorization policy를 부여한다. 이 ID는 <b>추적 가능하고, 감사 가능하며, 개별적으로 revoke 가능</b>해야 한다.</p>
+    <h3>왜 이게 필요한가?</h3>
+    <p>많은 조직은 모든 에이전트를 하나의 서비스 계정으로 돌린다. 이 방식은 초기엔 편하지만, 사고가 나면 조사 자체가 멈춘다. 누가 고객 DB에 접근했는지 알 수 없고, 특정 에이전트만 격리할 수도 없다.</p>
+    <h3>비교로 이해하기</h3>
+    <table>
+      <tr><th>운영 방식</th><th>공용 서비스 계정</th><th>에이전트별 고유 Identity</th></tr>
+      <tr><td>책임 추적</td><td>불명확</td><td>명확</td></tr>
+      <tr><td>격리</td><td>전체 영향</td><td>문제 에이전트만 revoke 가능</td></tr>
+      <tr><td>정책 정밀도</td><td>거칠다</td><td>테이블/버킷/API 단위까지 축소 가능</td></tr>
+      <tr><td>규제 대응</td><td>취약</td><td>감사 대응 유리</td></tr>
+    </table>
+    <h3>반대로 생각하면?</h3>
+    <p>Identity 없이 정책만 먼저 세우면 어떨까? 문서상 정책은 그럴듯해 보여도 실제 집행 단위가 없다. “Finance Agent는 payroll만 읽을 수 있다”는 말도, 그 Agent가 다른 Agent와 구분되지 않으면 실효성이 없다.</p>
+    <div class="practice"><div class="label">실습 · 정과실천법</div><ol><li>에이전트 3종을 골라 각각 이름, 목적, 소유팀을 적는다.</li><li>각 에이전트가 접근 가능한 테이블/버킷/API를 구체적으로 적는다.</li><li>“공용 권한”을 “개별 권한”으로 바꾸려면 무엇을 쪼개야 하는지 쓴다.</li></ol><p><b>완료 조건:</b> 최소 3개의 에이전트 identity 초안을 만들었다.</p></div>
+    <pre>예시
+- finance-agent-prod
+  목적: 월말 급여 정산 검증
+  허용: payroll.read, ledger.read
+  금지: benefits.read, customer.write, outbound.email
+
+- hr-benefits-agent
+  목적: 복지 정보 조회 응답
+  허용: benefits.read
+  금지: payroll.read, finance.write</pre>
+    <div class="memo"><div class="label">내 생각 쓰기</div><textarea placeholder="내가 운영하는 에이전트 중, 지금 가장 먼저 고유 ID를 줘야 할 대상은 누구인가?"></textarea></div>
+    <div class="review"><div class="label">다시 확인</div><div class="q">내 에이전트들은 서로 명확히 구분되는 identity를 가지고 있는가?</div><div class="q">권한은 역할 수준이 아니라 실제 데이터 자산 수준까지 좁혀져 있는가?</div><div class="q">특정 에이전트 하나만 즉시 revoke할 수 있는가?</div></div>
+    <div class="ch-nav"><button class="ch-btn" onclick="goto(1)">← 이전</button><button class="ch-btn" onclick="goto(3)">다음 →</button></div>
+  </section>
+
+  <section class="chapter" id="ch3">
+    <h2>3. Layer 2 — Centralized Tool Governance</h2>
+    <div class="dasan"><div class="tag">다산 원칙 · 휘분류취법 + 조례최중법</div><p>에이전트가 쓰는 도구는 먼저 모으고, 분류하고, 등록 규칙을 세워야 한다. 허용 목록 없는 자유 연결은 곧 shadow AI다.</p></div>
+    <h3>핵심 개념</h3>
+    <p>사람 엔지니어가 프로덕션 서버에 임의 패키지를 설치하지 않듯, 에이전트도 임의 도구를 바로 프로덕션에서 쓰면 안 된다. 이 계층의 핵심은 <b>Agent Registry</b>다. 조직 내 모든 agents, MCP tools, endpoints를 중앙 카탈로그로 관리한다.</p>
+    <h3>왜 이게 필요한가?</h3>
+    <p>팀마다 각자 도구를 만들고 연결하면 중복, 보안 구멍, 가시성 상실이 동시에 생긴다. 같은 BigQuery 커넥터가 네 개 생기고, 누가 어느 데이터에 접근하는지 모르고, 어떤 도구가 프로덕션에 들어갔는지도 알 수 없게 된다.</p>
+    <h3>비교로 이해하기</h3>
+    <table>
+      <tr><th>항목</th><th>도구 중앙 관리 없음</th><th>Agent Registry 있음</th></tr>
+      <tr><td>도구 발견</td><td>팀별 구전/복붙</td><td>검색 가능한 중앙 카탈로그</td></tr>
+      <tr><td>승인 절차</td><td>없거나 느슨함</td><td>등록 후 승인된 것만 프로덕션 허용</td></tr>
+      <tr><td>중복 개발</td><td>높음</td><td>재사용 촉진</td></tr>
+      <tr><td>거버넌스 연계</td><td>어려움</td><td>기존 API 거버넌스와 자연 연결</td></tr>
+    </table>
+    <h3>반대로 생각하면?</h3>
+    <p>“중앙 등록이 느리니 각 팀 자율에 맡기자”는 주장은 초기에 매력적이다. 하지만 결국 모든 팀이 보안팀이 되어야 하고, 그건 현실적으로 불가능하다. 속도와 통제를 둘 다 얻으려면 <b>개발 자유는 허용하되 프로덕션 연결은 등록·승인 기반</b>이어야 한다.</p>
+    <div class="practice"><div class="label">실습</div><ol><li>현재 사용 중인 도구를 데이터 접근 도구 / 실행 도구 / 메시징 도구 / 외부 API 도구로 분류한다.</li><li>각 도구마다 owner, 접근 데이터, 요구 권한, 배포 상태를 적는다.</li><li>중복 도구 2개를 찾아 어떤 것을 표준으로 삼을지 결정한다.</li></ol><p><b>완료 조건:</b> 최소 1개의 내부 Agent Registry 초안 표를 만들었다.</p></div>
+    <div class="memo"><div class="label">내 생각 쓰기</div><textarea placeholder="지금 우리 환경에서 가장 먼저 registry에 등록해야 할 도구는 무엇인가?"></textarea></div>
+    <div class="review"><div class="label">다시 확인</div><div class="q">프로덕션 에이전트가 승인되지 않은 도구를 사용할 수 있는가?</div><div class="q">새 에이전트 개발자가 기존 도구를 쉽게 발견할 수 있는가?</div><div class="q">도구마다 owner와 데이터 범위가 명시돼 있는가?</div></div>
+    <div class="ch-nav"><button class="ch-btn" onclick="goto(2)">← 이전</button><button class="ch-btn" onclick="goto(4)">다음 →</button></div>
+  </section>
+
+  <section class="chapter" id="ch4">
+    <h2>4. Layer 3 — Policy & Guardrails</h2>
+    <div class="dasan"><div class="tag">다산 원칙 · 대조변백법</div><p>좋은 에이전트는 ‘할 수 있는 것’보다 ‘해서는 안 되는 것’이 더 분명해야 한다. 정책은 자유를 막는 장벽이 아니라, 잘못된 확장을 미리 꺾는 구조다.</p></div>
+    <h3>핵심 개념</h3>
+    <p>Identity와 Tool Registry가 준비되면 그 위에 정책을 얹는다. 정책은 데이터 분류, 승인된 도구, 시간대, 승인 경로, 인간 검토 요구사항 등을 강제하는 계층이다. 단순 allow/deny가 아니라 <b>행동 경계선</b>을 정의한다.</p>
+    <h3>왜 이게 필요한가?</h3>
+    <p>에이전트는 목표를 달성하려는 성질 때문에, 허용된 도구와 데이터 안에서도 예상 밖 경로를 찾는다. 따라서 “이 데이터는 가능”만으로는 부족하고, <b>어떤 맥락에서 어떤 조건으로 가능한지</b>까지 명시해야 한다.</p>
+    <h3>비교로 이해하기</h3>
+    <table>
+      <tr><th>정책 없음</th><th>정책 있음</th></tr>
+      <tr><td>에이전트가 권한 안에서 최대한 넓게 행동</td><td>업무 맥락별 허용 범위 제한</td></tr>
+      <tr><td>승인 단계 생략 가능</td><td>고위험 작업은 human-in-the-loop 강제</td></tr>
+      <tr><td>규정 대응이 문서 수준에 머묾</td><td>정책 집행 로그로 증명 가능</td></tr>
+    </table>
+    <h3>반대로 생각하면?</h3>
+    <p>정책을 너무 세게 걸면 아무것도 못 하는 것 아니냐는 반론이 있다. 맞다. 그래서 정책은 막연한 두려움이 아니라, <b>위험도 기준</b>으로 단계화해야 한다. 읽기 전용과 결제 실행이 같은 승인 단계를 가질 이유는 없다.</p>
+    <div class="practice"><div class="label">실습</div><ol><li>에이전트 행동을 저위험/중위험/고위험으로 나눈다.</li><li>고위험 행동 3개에 대해 human approval이 필요한 조건을 적는다.</li><li>정책 위반 시 차단 / 경고 / 승인 대기 중 어느 반응을 할지 결정한다.</li></ol><p><b>완료 조건:</b> 위험도 기반 정책 매트릭스를 작성했다.</p></div>
+    <div class="memo"><div class="label">내 생각 쓰기</div><textarea placeholder="내가 가장 먼저 정책화해야 할 금지 또는 승인 조건은 무엇인가?"></textarea></div>
+    <div class="review"><div class="label">다시 확인</div><div class="q">우리 시스템은 고위험 행동에 대해 사전 승인 구조가 있는가?</div><div class="q">정책은 문서에만 있고 실제 집행되지는 않는 상태가 아닌가?</div><div class="q">위험도 기준이 팀마다 다르게 해석되고 있지는 않은가?</div></div>
+    <div class="ch-nav"><button class="ch-btn" onclick="goto(3)">← 이전</button><button class="ch-btn" onclick="goto(5)">다음 →</button></div>
+  </section>
+
+  <section class="chapter" id="ch5">
+    <h2>5. Layer 4 — Monitoring, Anomaly Detection, Threat Detection</h2>
+    <div class="dasan"><div class="tag">다산 원칙 · 지기췌마법 + 절시마탁법</div><p>정책 위반만 보는 것은 늦다. 아직 위반은 아니지만 어딘가 이상한 기미를 읽어내는 것이 운영의 품질을 가른다.</p></div>
+    <h3>핵심 개념</h3>
+    <p>글은 이상 탐지와 위협 탐지를 분리한다. <b>이상 탐지</b>는 실수, drift, 비정상 행태를 잡고, <b>위협 탐지</b>는 악의적 공격과 침해 징후를 잡는다.</p>
+    <p>이상 탐지는 두 축으로 작동한다.</p>
+    <ul>
+      <li>통계 기반 baseline: 응답 시간, 도구 호출 패턴, 데이터 접근량, reasoning chain 길이</li>
+      <li>LLM-as-a-judge: 결론이 근거와 맞는지, 목표와 충돌하는지, 범위를 벗어나는지 평가</li>
+    </ul>
+    <h3>왜 이게 필요한가?</h3>
+    <p>정책은 “해서는 안 되는 일”을 막지만, 이상 탐지는 “원래 하던 방식과 달라진 일”을 잡는다. 예를 들어 특정 에이전트가 갑자기 새벽 시간대에 처음 보는 시스템에 접근하거나, 평소보다 훨씬 긴 reasoning을 거쳐 엉뚱한 결론을 내리면 정책 위반이 아니어도 조사 가치가 있다.</p>
+    <h3>비교로 이해하기</h3>
+    <table>
+      <tr><th>계층</th><th>잡는 대상</th><th>예시</th></tr>
+      <tr><td>Policy</td><td>명시적 금지 위반</td><td>승인 없는 결제 실행</td></tr>
+      <tr><td>Anomaly Detection</td><td>비정상 패턴</td><td>평소와 다른 시간대·호출량·추론 구조</td></tr>
+      <tr><td>Threat Detection</td><td>악의적 침해 시도</td><td>reverse shell, malicious IP 연결, privilege escalation</td></tr>
+    </table>
+    <h3>반대로 생각하면?</h3>
+    <p>“정책만 잘 걸어두면 충분하지 않나?” 아니다. 잘못된 프롬프트 주입, 모델 업데이트 후 drift, 도구 조합의 예외 경로는 정책 문구 밖에서 터질 수 있다. 반대로 이상 탐지만 있고 정책이 없으면, 매번 사후 탐지만 하다가 늦는다. 둘은 대체 관계가 아니라 보완 관계다.</p>
+    <div class="practice"><div class="label">실습</div><ol><li>에이전트 하나를 골라 정상 baseline 5개를 정의한다.</li><li>“이상하지만 아직 정책 위반은 아닌 시나리오”를 3개 적는다.</li><li>“명백한 공격 시나리오”를 3개 적고 탐지 신호를 붙인다.</li></ol><p><b>완료 조건:</b> baseline + anomaly + threat 표 하나를 만들었다.</p></div>
+    <div class="memo"><div class="label">내 생각 쓰기</div><textarea placeholder="내 시스템에서 지금은 로그가 남아도, 이상하다는 판단까지는 못 하는 지점이 있나?"></textarea></div>
+    <div class="review"><div class="label">다시 확인</div><div class="q">에이전트별 정상 행동 baseline을 정의할 수 있는가?</div><div class="q">정책 위반이 아니어도 조사할 이상 징후를 구분하고 있는가?</div><div class="q">침해 지표는 애플리케이션 로그와 분리해서 보고 있는가?</div></div>
+    <div class="ch-nav"><button class="ch-btn" onclick="goto(4)">← 이전</button><button class="ch-btn" onclick="goto(6)">다음 →</button></div>
+  </section>
+
+  <section class="chapter" id="ch6">
+    <h2>6. Layer 5 — Unified Security Posture</h2>
+    <div class="dasan"><div class="tag">다산 원칙 · 종핵파즐법</div><p>정체성, 도구, 정책, 이상 탐지가 따로 놀면 운영자는 늘 뒤늦게 이해한다. 흩어진 조각을 하나의 시야로 빗질해 묶어라.</p></div>
+    <h3>핵심 개념</h3>
+    <p>마지막 계층은 전체를 하나의 운영 화면으로 묶는 것이다. 엔지니어링 조직이 uptime dashboard, incident tracker, security scorecard를 갖듯, 에이전트 조직도 <b>누가 어떤 권한으로 무엇을 했고, 어떤 경고가 켜졌고, 어디가 취약한지</b>를 한눈에 봐야 한다.</p>
+    <h3>왜 이게 필요한가?</h3>
+    <p>거버넌스 계층이 많아질수록 각 기능은 좋아지지만, 운영자는 오히려 더 복잡해질 수 있다. 경고는 따로, 권한은 따로, 정책은 따로, 도구 목록은 따로 있으면 실제 사건 대응 속도가 느려진다. 통합 보안 자세는 이 파편화를 줄인다.</p>
+    <h3>비교로 이해하기</h3>
+    <table>
+      <tr><th>운영 관점</th><th>분리된 화면들</th><th>통합 보안 시야</th></tr>
+      <tr><td>사건 대응</td><td>여러 시스템을 수동 대조</td><td>주체·정책·이상신호를 연결해서 즉시 파악</td></tr>
+      <tr><td>우선순위</td><td>노이즈 많음</td><td>위험 기반 정렬 가능</td></tr>
+      <tr><td>경영 보고</td><td>단편적</td><td>플릿 전체 posture로 설명 가능</td></tr>
+    </table>
+    <h3>반대로 생각하면?</h3>
+    <p>“대시보드는 나중에”라고 밀어두기 쉽다. 하지만 실제로는 마지막에 붙이기 가장 어려운 계층이다. 각 레이어의 데이터 모델이 다 다르기 때문이다. 그래서 초기부터 identity, tool, policy, detection 이벤트를 같은 키로 이어질 수 있게 설계해야 한다.</p>
+    <div class="practice"><div class="label">실습</div><ol><li>통합 화면에 꼭 보여야 할 지표 8개를 적는다.</li><li>각 지표가 어느 데이터 소스에서 오는지 적는다.</li><li>사건 발생 시 5분 안에 봐야 하는 카드 3개를 선정한다.</li></ol><p><b>완료 조건:</b> 에이전트 운영 대시보드 초안 목록이 생겼다.</p></div>
+    <div class="memo"><div class="label">내 생각 쓰기</div><textarea placeholder="내가 사건이 났을 때 가장 먼저 보고 싶은 단일 화면은 어떤 모습인가?"></textarea></div>
+    <div class="review"><div class="label">다시 확인</div><div class="q">사건 대응에 필요한 정보가 여러 시스템에 흩어져 있지는 않은가?</div><div class="q">각 레이어의 이벤트를 하나의 agent identity로 연결할 수 있는가?</div><div class="q">지금의 관제 화면은 실제 판단을 돕는가, 아니면 로그를 더 보여줄 뿐인가?</div></div>
+    <div class="ch-nav"><button class="ch-btn" onclick="goto(5)">← 이전</button><button class="ch-btn" onclick="goto(7)">다음 →</button></div>
+  </section>
+
+  <section class="chapter" id="ch7">
+    <h2>7. 이 구조를 내 시스템에 적용하기</h2>
+    <div class="dasan"><div class="tag">다산 원칙 · 거일반삼법 + 강구실용법</div><p>좋은 글을 읽고 끝내지 말고, 내 시스템에 옮겨 써야 한다. 하나의 개념을 세 가지 운영 규칙으로 확장해 실무로 내려라.</p></div>
+    <h3>OpenClaw / Paperclip / 사내 에이전트 환경으로 번역하기</h3>
+    <table>
+      <tr><th>원문 계층</th><th>실무 번역 질문</th><th>즉시 실행 아이템</th></tr>
+      <tr><td>Identity</td><td>에이전트별 세션/계정/권한이 분리되는가?</td><td>공용 토큰, 공용 서비스 계정 현황 조사</td></tr>
+      <tr><td>Tool Governance</td><td>어떤 MCP/CLI/API가 승인된 표준인가?</td><td>도구 registry 문서화 및 owner 지정</td></tr>
+      <tr><td>Policy</td><td>외부 발신, 삭제, 결제, 공개 업로드는 어떻게 막을 것인가?</td><td>고위험 행동 human approval 규칙 작성</td></tr>
+      <tr><td>Anomaly / Threat</td><td>평소와 다른 행동을 자동 감지할 수 있는가?</td><td>세션별 baseline 로그 항목 정의</td></tr>
+      <tr><td>Unified Posture</td><td>사건 시 한 화면에서 추적 가능한가?</td><td>identity-key 중심 이벤트 스키마 설계</td></tr>
+    </table>
+    <h3>권장 순서</h3>
+    <ol>
+      <li><b>Identity inventory</b> — 누가 어떤 자격증명으로 도는지 먼저 파악</li>
+      <li><b>Tool inventory</b> — 실제 연결된 도구와 데이터 범위를 등록</li>
+      <li><b>Risk policy</b> — 고위험 행동부터 승인 구조를 명시</li>
+      <li><b>Baseline logging</b> — 정상 행동 패턴을 측정 가능하게 만듦</li>
+      <li><b>Unified dashboard</b> — 위 4개를 동일 키로 연결</li>
+    </ol>
+    <h3>작은 조직의 최소 버전</h3>
+    <p>큰 플랫폼이 없어도 최소 버전은 만들 수 있다. 스프레드시트나 마크다운이어도 된다. 중요한 것은 도구의 화려함이 아니라 <b>식별 가능성, 권한 범위, 승인 기준, 로그 연결성</b>이다.</p>
+    <div class="practice"><div class="label">실습</div><ol><li>이번 주 안에 할 수 있는 1시간짜리 조치 3개를 적는다.</li><li>이번 달 안에 할 수 있는 구조 개선 3개를 적는다.</li><li>“지금 당장 안 하면 가장 위험한 것” 하나를 고른다.</li></ol><p><b>완료 조건:</b> 실행 우선순위 목록을 만들었다.</p></div>
+    <div class="memo"><div class="label">내 생각 쓰기</div><textarea placeholder="내 시스템에 이 스택을 도입한다면 어디서부터 시작해야 가장 비용 대비 효과가 큰가?"></textarea></div>
+    <div class="review"><div class="label">다시 확인</div><div class="q">나는 너무 큰 플랫폼 그림만 보고 작은 실행을 미루고 있지 않은가?</div><div class="q">지금 내 환경에서 가장 먼저 필요한 것은 identity, tool registry, policy, monitoring 중 무엇인가?</div><div class="q">이 구조를 강의 자료가 아니라 내 운영 기준서로 만들 수 있는가?</div></div>
+    <div class="ch-nav"><button class="ch-btn" onclick="goto(6)">← 이전</button><button class="ch-btn" onclick="goto(8)">다음 →</button></div>
+  </section>
+
+  <section class="chapter" id="ch8">
+    <h2>8. 부록</h2>
+    <div class="dasan"><div class="tag">다산 원칙 · 초서권형법</div><p>전체를 다 외우려 하지 말고, 실제로 다시 꺼내 쓸 수 있는 표와 템플릿으로 남겨라.</p></div>
+    <h3>다산 50법 × 이 교재 대응표</h3>
+    <table>
+      <tr><th>원칙</th><th>어디에 쓰였는가</th></tr>
+      <tr><td>선정문목법</td><td>전체 5계층 구조를 먼저 잡는 시작 챕터</td></tr>
+      <tr><td>축기견초법</td><td>Identity를 기반 계층으로 보는 시각</td></tr>
+      <tr><td>여박총피법</td><td>왜 SaaS 거버넌스로는 부족한지 파고드는 질문</td></tr>
+      <tr><td>피차비대법</td><td>공용 계정 vs 고유 identity, registry 유무 비교표</td></tr>
+      <tr><td>일반지도법</td><td>“나중에 통제해도 된다”는 생각을 뒤집는 구간</td></tr>
+      <tr><td>정과실천법</td><td>모든 챕터의 실습 + 완료 조건</td></tr>
+      <tr><td>수사차록법</td><td>모든 챕터의 메모 textarea</td></tr>
+      <tr><td>반복참정법</td><td>모든 챕터의 확인 질문 3개</td></tr>
+      <tr><td>휘분류취법</td><td>Tool Registry 설계와 도구 분류</td></tr>
+      <tr><td>종핵파즐법</td><td>Unified Security Posture에서 파편 정보 통합</td></tr>
+      <tr><td>강구실용법</td><td>마지막 챕터의 실무 적용 순서와 우선순위</td></tr>
+    </table>
+    <h3>실습 체크리스트 모음</h3>
+    <pre>[ ] 에이전트 3종의 identity 초안을 만들었다
+[ ] 에이전트별 데이터/도구 접근 범위를 적었다
+[ ] 공용 자격증명 사용 현황을 조사했다
+[ ] 도구 registry 초안 표를 만들었다
+[ ] 고위험 행동 승인 정책을 적었다
+[ ] 정상 baseline / anomaly / threat 표를 만들었다
+[ ] 통합 대시보드에 필요한 지표 목록을 정했다
+[ ] 이번 주 1시간짜리 조치 3개를 뽑았다</pre>
+    <h3>핵심 파일 템플릿</h3>
+    <pre># agent-identity-inventory.md
+- agent_name:
+- owner_team:
+- purpose:
+- credentials:
+- allowed_data_assets:
+- allowed_tools:
+- forbidden_actions:
+- revoke_method:
+
+# agent-tool-registry.md
+| tool | owner | type | data_access | required_permissions | status | approved_for_prod |
+
+# agent-risk-policy.md
+| action | risk_level | human_approval_required | policy_response | notes |
+
+# agent-baseline.md
+| agent | normal_hours | common_tools | avg_data_volume | avg_reasoning_length | anomaly_threshold |
+</pre>
+    <h3>참고자료 & 학습 로드맵</h3>
+    <ul>
+      <li>원문 기반 메모: <code>agent-governance-stack-gemini-enterprise-agent-platform-2026-04-24.md</code></li>
+      <li>Google Cloud Next 26 맥락에서 본 Gemini Enterprise Agent Platform 관련 발표/글</li>
+      <li>IAM / Least Privilege / Threat Detection / Security Posture Management 관련 공식 문서</li>
+      <li>다음 읽기 질문: “우리 에이전트 시스템의 사번 체계는 무엇인가?”</li>
+    </ul>
+    <div class="memo"><div class="label">마지막 사유 노트</div><textarea placeholder="이 교재를 다 읽고 나서, 내 에이전트 운영 철학이 어떻게 바뀌었는지 적어봐."></textarea></div>
+    <div class="review"><div class="label">최종 확인</div><div class="q">나는 이제 에이전트 거버넌스를 기능 목록이 아니라 조직 운영 모델로 이해하는가?</div><div class="q">내 환경에서 당장 손대야 할 첫 계층이 무엇인지 명확한가?</div><div class="q">이 내용을 다시 꺼내 볼 수 있도록 실제 템플릿과 규칙으로 남겼는가?</div></div>
+    <p class="footer-note">이 교재의 핵심 한 줄: <b>에이전트 플릿은 툴 묶음이 아니라, 정체성과 규율을 가진 조직으로 운영해야 한다.</b></p>
+    <div class="ch-nav"><button class="ch-btn" onclick="goto(7)">← 이전</button><button class="ch-btn" onclick="goto(0)">처음으로</button></div>
+  </section>
+</div>
+<script>
+const TOTAL=9;
+function goto(n){document.querySelectorAll('.chapter').forEach(c=>c.classList.remove('active'));const el=document.getElementById('ch'+n);if(el)el.classList.add('active');document.querySelectorAll('.nav-item').forEach((a,i)=>a.classList.toggle('active',i===n));document.getElementById('progress-fill').style.width=((n/Math.max(TOTAL-1,1))*100)+'%';window.scrollTo(0,0)}
+document.querySelectorAll('.nav-item').forEach((a,i)=>{a.onclick=function(e){e.preventDefault();goto(i)}});
+goto(0);
+</script>
+</body>
+</html>
